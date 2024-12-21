@@ -1,0 +1,28 @@
+
+
+
+<form [formGroup]="voter" (ngSubmit)="getvoter()" >
+    <div class="login-container">
+        <h2>User Register</h2>
+    <label for="id">Voter ID:</label>
+    <input type="number" id="id" name="id" formControlName="voterID" >
+    <br><br>
+    
+    <label for="name">UserName:</label>
+    <input type="text" id="name" name="name" formControlName="votername">
+    <br><br>
+
+    <label for="author">password:</label>
+    <input type="password" id="author" name="author" formControlName="password">
+    <br><br>
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location"  formControlName="createAt" formControlName="voted_at">
+    <br><br>
+
+
+    
+
+    <button type="submit" (click)="reloadPage()">Add Student</button>
+</div>
+</form>
