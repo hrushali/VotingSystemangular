@@ -1,0 +1,53 @@
+<nav class="navbar">
+  <!-- Left Side: System Name -->
+  <div class="navbar-left">
+    <span class="navbar-brand">Online Voting System</span>
+  </div>
+
+  <!-- Right Side: Navigation Links -->
+  <div class="navbar-right">
+    <a routerLink="/home2" class="nav-link">Home</a>
+    <a routerLink="/vote1" class="nav-link">Vote</a>
+    <a routerLink="/about1" class="nav-link">About</a>
+    <a routerLink="/contact1" class="nav-link">Contact</a>
+    <a routerLink="/" class="logout-btn">Logout</a>
+  </div>
+</nav>
+
+<div class="vote-page">
+    <!-- Background Image -->
+    <div class="background-image"></div>
+  
+    <!-- Content Section -->
+    <div class="content">
+      <!-- Header Section -->
+      <div class="header">
+        <h1>Cast Your Vote</h1>
+        <p>Your vote is your voice. Make it count!</p>
+      </div>
+  
+      <!-- Candidate List Section -->
+      <div class="candidate-list"  >
+        <h2>Choose Your Candidate</h2>
+       
+        <div class="candidates" >
+          <div *ngFor="let item of clist">
+          <div class="candidate-card">
+            <!-- <img src="https://via.placeholder.com/150" alt="Candidate 1"> -->
+            <h3>{{item.c_name}}</h3>
+            <p>Party: {{item.partyname}}</p>
+            <button class="vote-btn">Vote</button>
+          </div>
+          </div>
+  
+          
+        </div>
+      </div>
+  
+      <!-- Footer Section -->
+      <div class="footer">
+        <p>Thank you for participating in the election. Your vote matters!</p>
+      </div>
+    </div>
+  </div>
+  
