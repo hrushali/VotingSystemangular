@@ -7,7 +7,6 @@ import { AboutcomponantComponent } from './Homepage/aboutcomponant/aboutcomponan
 import { UsersignupcomponantComponent } from './Homepage/usersignupcomponant/usersignupcomponant.component';
 import { CandidatecomponantComponent } from './Homepage/candidatecomponant/candidatecomponant.component';
 import { CandidateloginComponent } from './Homepage/candidatelogin/candidatelogin.component';
-import { VotescomponantComponent } from './Homepage/votescomponant/votescomponant.component';
 import { ResultcomponantComponent } from './Homepage/resultcomponant/resultcomponant.component';
 import { AdminComponent } from './Homepage/admin/admin.component';
 import { ContactQueriesComponent } from './Homepage/contact-queries/contact-queries.component';
@@ -18,12 +17,15 @@ import { VoteComponent } from './vote/vote.component';
 import { ResultComponent } from './result/result.component';
 import { AboutComponent } from './about/about.component';
 import { AuthenticationComponantComponent } from './authentication-componant/authentication-componant.component';
+import { SubmitvotecomponantComponent } from './submitvotecomponant/submitvotecomponant.component';
+import { EmaolcomponantComponent } from './emaolcomponant/emaolcomponant.component';
 
 export const routes: Routes = [
 
 {
     path:'',
     component:HomecomponantComponent
+    
 
 },
 
@@ -54,10 +56,10 @@ export const routes: Routes = [
         path:"candidates",
         component:CandidateloginComponent
     },
-    {
-        path:'votes',
-        component:VotescomponantComponent
-    },
+    // {
+    //     path:'votes',
+    //     component:VotescomponantComponent
+    // },
     {
         path:"result",
         component:ResultcomponantComponent
@@ -105,5 +107,13 @@ export const routes: Routes = [
     {
         path:"form",
         component:AuthenticationComponantComponent
+    },
+    {
+        path:"submitvote",
+        component: SubmitvotecomponantComponent
+    },
+    {
+        path:"con",
+        component:EmaolcomponantComponent
     }
 ];

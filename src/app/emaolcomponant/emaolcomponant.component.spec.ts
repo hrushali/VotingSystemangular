@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VotescomponantComponent } from './votescomponant.component';
+import { EmaolcomponantComponent } from './emaolcomponant.component';
 
-describe('VotescomponantComponent', () => {
-  let component: VotescomponantComponent;
-  let fixture: ComponentFixture<VotescomponantComponent>;
+describe('EmaolcomponantComponent', () => {
+  let component: EmaolcomponantComponent;
+  let fixture: ComponentFixture<EmaolcomponantComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [VotescomponantComponent]
+      imports: [EmaolcomponantComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(VotescomponantComponent);
+    fixture = TestBed.createComponent(EmaolcomponantComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

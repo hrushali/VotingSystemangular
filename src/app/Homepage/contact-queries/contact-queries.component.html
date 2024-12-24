@@ -7,15 +7,16 @@
     <!-- Right Side: Navigation Links -->
     <div class="navbar-right">
       <a routerLink="/home2" class="nav-link">Home</a>
-      <a routerLink="/vote1" class="nav-link">Vote</a>
+      <a routerLink="/form" class="nav-link">Vote</a>
       <a routerLink="/about1" class="nav-link">About</a>
-      <a routerLink="/contact1" class="nav-link">Contact</a>
+      <a routerLink="/contact1" class="nav-link">Contact for Queries</a>
+      <a routerLink="/con" class="nav-link">Email for Queries</a>
       <a routerLink="/" class="logout-btn">Logout</a>
     </div>
   </nav>
   
 <!-- <div class="background-image"></div> -->
-<body>
+<!-- <body> -->
     
 
 <div class="container">
@@ -24,9 +25,9 @@
     
    
 
-    <form action="#" method="post">
+    <form action="#"   [formGroup]="contact"    (ngSubmit)="getqueries()">
         <label for="subject">Subject</label>
-        <select id="subject" name="subject" required>
+        <select id="subject" name="subject" required  formControlName="subject">
             <option value="">Select a subject</option>
             <option value="general">General Inquiry</option>
             <option value="technical">Technical Issue</option>
@@ -36,18 +37,22 @@
         </select>
 
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required  formControlName="massage"></textarea>
 
        
-        <input type="submit" value="Submit Query" routerLink="/home2" >
+        <input type="submit" value="Submit Query" [disabled]="!contact.valid"  >
     </form>
+    <!-- <div *ngIf="responseMessage">
+        <p>{{ responseMessage }}</p>
+      </div>
+       -->
 
     <div class="alternative-contact">
         <p><strong>Email Support:</strong> support&#64;gmail.com</p>
         <p><strong>Phone Support:</strong> +1 (800) 123-4567 (Available 9 AM - 5 PM)</p>
     </div>
 
-    <div class="faq">
+    <!-- <div class="faq">
         <h2>Frequently Asked Questions</h2>
         <div class="faq-details">
             <details>
@@ -64,5 +69,5 @@
             </details>
         </div>
     </div>
-</div>
-</body>
+</div> -->
+<!-- </body> -->

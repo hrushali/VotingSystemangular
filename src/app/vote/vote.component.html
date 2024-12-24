@@ -7,10 +7,11 @@
   <!-- Right Side: Navigation Links -->
   <div class="navbar-right">
     <a routerLink="/home2" class="nav-link">Home</a>
-    <a routerLink="/vote1" class="nav-link">Vote</a>
+    <a routerLink="/form" class="nav-link">Vote</a>
     <a routerLink="/about1" class="nav-link">About</a>
-    <a routerLink="/contact1" class="nav-link">Contact</a>
-    <a routerLink="/" class="logout-btn">Logout</a>
+    <a routerLink="/contact1" class="nav-link">Contact for Queries</a>
+    <a routerLink="/con" class="nav-link">Email for Queries</a>
+<a routerLink="/" class="logout-btn">Logout</a>
   </div>
 </nav>
 
@@ -36,7 +37,7 @@
             <!-- <img src="https://via.placeholder.com/150" alt="Candidate 1"> -->
             <h3>{{item.c_name}}</h3>
             <p>Party: {{item.partyname}}</p>
-            <button class="vote-btn">Vote</button>
+            <button class="vote-btn" routerLink="/submitvote">Vote</button>
           </div>
           </div>
   
