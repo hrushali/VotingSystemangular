@@ -1,4 +1,5 @@
-
+<div class="home-container">
+    <div class="background-image">
     <header>
         <h1>Admin Dashboard - Voting System</h1>
     </header>
@@ -14,7 +15,7 @@
 
         <!-- Manage Votes -->
         <div class="card">
-            <h3>Manage Votes</h3>
+            <h3>Teams</h3>
             <div class="btn-container" *ngFor="let item of clist">
                 <button class="vote-btn" onclick="increaseVote('teamA')">{{item.partyname}}</button>
             </div>
@@ -22,7 +23,7 @@
 
         <!-- Add New Team -->
         <div class="card">
-            <h3>Add New Team</h3>
+            <h3>Add New Candidates</h3>
             <button class="vote-btn" routerLink="/candidatesignup">Add Team</button>
         </div>
     </div>
@@ -118,3 +119,5 @@
         // Initialize with default votes
         updateVoteCounts();
     </script>
+</div>
+</div>

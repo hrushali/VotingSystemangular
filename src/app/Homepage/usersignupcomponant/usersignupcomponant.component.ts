@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-usersignupcomponant',
-  imports: [ReactiveFormsModule,CommonModule,RouterLink],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './usersignupcomponant.component.html',
   styleUrl: './usersignupcomponant.component.css'
 })

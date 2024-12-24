@@ -11,7 +11,7 @@ import { RouterLink , Router} from '@angular/router';
   styleUrls: ['./user-logincomponant.component.css'], // Corrected property name
 })
 export class UserLogincomponantComponent implements OnInit {
-
+ dbvoter:any;
 
   logingerror : any;
  
@@ -22,7 +22,9 @@ export class UserLogincomponantComponent implements OnInit {
 
   constructor(private http: HttpClient, private router:Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   /**
    * Handles user login by making a POST request to the back-end.

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink,Router } from '@angular/router';
 import emailjs from 'emailjs-com';  
 
 @Component({
@@ -19,7 +19,7 @@ export class EmaolcomponantComponent implements OnInit {
   
     responseMessage: string | null = null;
   
-    constructor() {}
+    constructor(private router:Router) {}
   
     ngOnInit(): void {}
   
@@ -57,6 +57,9 @@ export class EmaolcomponantComponent implements OnInit {
               this.responseMessage = `Failed to send your query. Error: ${error.text || error.message}`;
             }
           );
+
+          this.router.navigate(["/emailsubmit"])
+
       } else {
         this.responseMessage = 'Please fill out all fields.';
       }

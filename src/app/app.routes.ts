@@ -19,6 +19,8 @@ import { AboutComponent } from './about/about.component';
 import { AuthenticationComponantComponent } from './authentication-componant/authentication-componant.component';
 import { SubmitvotecomponantComponent } from './submitvotecomponant/submitvotecomponant.component';
 import { EmaolcomponantComponent } from './emaolcomponant/emaolcomponant.component';
+import { Component } from '@angular/core';
+import { EmailsubmitComponent } from './emailsubmit/emailsubmit.component';
 
 export const routes: Routes = [
 
@@ -115,5 +117,9 @@ export const routes: Routes = [
     {
         path:"con",
         component:EmaolcomponantComponent
+    },
+    {
+    path:"emailsubmit",
+    component:EmailsubmitComponent
     }
 ];

@@ -32,10 +32,11 @@
     <textarea id="message" formControlName="massage" required></textarea>
 
     <button type="submit" [disabled]="!contact.valid">Submit</button>
+    <div *ngIf="responseMessage">
+      <p>{{ responseMessage }}</p>
+    </div>
   </form>
-
-  <div *ngIf="responseMessage">
-    <p>{{ responseMessage }}</p>
-  </div>
+<br><br>
+  
 </div>
 </body>

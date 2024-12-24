@@ -1,13 +1,34 @@
 /* General Body Styling */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f7fa;
+
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin-right: 900px;
+}
+
+.home-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Background Image */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('vote2.jpg'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7); /* Darken the image for text visibility */
+  z-index: 1;
 }
 
 /* Signup Container */
