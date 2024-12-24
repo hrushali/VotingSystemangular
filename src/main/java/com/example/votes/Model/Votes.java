@@ -21,7 +21,7 @@ public class Votes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long vote_ID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "voterID", referencedColumnName = "voterID") 
     @JsonBackReference(value = "voter-votes")
     private Voter voter;

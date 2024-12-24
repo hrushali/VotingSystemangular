@@ -45,9 +45,9 @@ public class contactfor {
     }
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="voterID")
-    @JsonBackReference
+    @JsonBackReference(value = "votercontact")
     private Voter v;
     
 }

@@ -32,5 +32,9 @@ public class CandidateService {
         }
     }
 
+    // public Candidate findById(Long c_id) {
+    //     return cr.findByC_id(c_id);
+    // }
+
 
 }
