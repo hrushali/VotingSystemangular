@@ -10,7 +10,9 @@ import com.example.votes.Model.Admin;
 import com.example.votes.Services.AdminService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -30,8 +32,13 @@ public class AdminController {
     }
 
     @PostMapping("addadmin")
-    public String getvoter(@RequestBody Admin a){
+    public String addadmin(@RequestBody Admin a){
         return as.addAdmin(a);
+    }
+
+    @DeleteMapping("deleteadmin/{id}")
+    public String deleteadmin(@PathVariable long id){
+        return as.deleteAdmin(id);
     }
     
  @PostMapping("Adminlogin")

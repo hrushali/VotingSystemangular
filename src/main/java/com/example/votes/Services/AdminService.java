@@ -24,12 +24,16 @@ public class AdminService {
         return "successfully added";
     }
 
-
+public String deleteAdmin(long adminID){
+    ar.deleteById(adminID);
+    return "Admin deleted successfully";
+}
 
       public boolean authenticateadmin(long adminID, String password) {
         Admin admin = ar.findByAdminIDAndPassword(adminID, password);
         return admin != null; 
     }
+
 
 }
 

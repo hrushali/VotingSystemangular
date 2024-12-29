@@ -18,6 +18,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Candidate {
+    
     @Id
     private long c_id;
     private String C_name;

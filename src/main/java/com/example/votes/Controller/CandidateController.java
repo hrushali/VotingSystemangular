@@ -42,5 +42,7 @@ public class CandidateController {
         return cs.DeleteCandidtae(id);
     }
 
+   
+
     
 }

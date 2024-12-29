@@ -10,6 +10,8 @@ import com.example.votes.Model.Voter;
 
 import com.example.votes.Repository.VoterRepo;
 
+import jakarta.servlet.http.HttpSession;
+
 @Service
 public class VoterService {
     @Autowired
@@ -17,9 +19,9 @@ public class VoterService {
     private VoterRepo vr;
 
 
-    public String addvoter(@RequestBody Voter voter){
+    public Voter addvoter(@RequestBody Voter voter){
         vr.save(voter);
-        return "voter successfully added";
+        return voter;
     }
     
     public List<Voter> getvoter(){
@@ -35,9 +37,24 @@ public class VoterService {
         }
     }
 
-    public boolean authenticateVoter(String votername, String password) {
+public String updateVoter(Voter voter){
+    if(vr.existsById(voter.getVoterID())){
+        vr.save(voter);
+        return "Voter update successfully";
+    }
+    else{
+        return "voter not found";
+    }
+
+}
+
+
+
+    public Voter authenticateVoter(String votername, String password) {
+
         Voter voter = vr.findByVoternameAndPassword(votername, password);
-        return voter != null; 
+        
+        return voter; 
     }
 
 
@@ -45,6 +62,8 @@ public class VoterService {
          Voter voter= vr.findByVoterID(voterID);
          return voter != null;
     }
+
+    
     
 }
     

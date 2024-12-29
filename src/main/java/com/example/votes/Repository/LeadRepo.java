@@ -3,15 +3,10 @@ package com.example.votes.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.votes.Model.Candidate;
-
+import com.example.votes.Model.LeadAdmin;
 
 @Repository
-public interface CandidateRepo extends JpaRepository<Candidate,Long> {
+public interface LeadRepo extends JpaRepository<LeadAdmin,Long> {
 
-    // List<Candidate> findByC_id(long c_id);
-
-
-   
     
 }

@@ -30,19 +30,6 @@ public class Voter {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 public Voter(String voterID, String votername, String password, String createAt, List<Votes> votesl) {
     this.voterID = voterID;
     this.votername = votername;
@@ -52,39 +39,20 @@ public Voter(String voterID, String votername, String password, String createAt,
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-@OneToMany( mappedBy = "voter")
+@OneToMany( mappedBy = "voter",cascade = CascadeType.PERSIST)
     @JsonManagedReference(value = "voter-votes")
+   
     private List<Votes> votesl;
 
 
-    @OneToMany(mappedBy = "v",cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "v",cascade = CascadeType.PERSIST)
+    @JsonManagedReference(value = "votercontact")
     private List<contactfor> clist;
 
 
+public Voter() {}
 
 
-//  @ManyToOne
-//     @JoinColumn(name = "c_id")
-//     @JsonBackReference // Avoid circular reference in JSON
-//     private Candidate candidates;
-
-
-public Voter() {
-}
 
 
    

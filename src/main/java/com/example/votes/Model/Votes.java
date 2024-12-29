@@ -1,6 +1,8 @@
 package com.example.votes.Model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -31,10 +33,13 @@ public class Votes {
     @JsonBackReference(value = "candidate-votes")
     private Candidate candidate; 
 
+    
+
+
     public Votes() {
     }
 
-   
+
     @Override
     public String toString() {
         return "Votes []";
@@ -42,7 +47,6 @@ public class Votes {
 
 
     public Votes( Voter voter, Candidate candidate) {
-        this.vote_ID = vote_ID;
         this.voter = voter;
         this.candidate = candidate;
     }
