@@ -2,6 +2,7 @@ import { CommonModule, UpperCasePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { response } from 'express';
 
 @Component({
   selector: 'app-admin',
@@ -11,6 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
 
+  resultlist:any[]=[];
 
   clist: any[]=[];
 
@@ -19,6 +21,7 @@ export class AdminComponent implements OnInit {
   }
   ngOnInit() {
     this.getcandidate();
+    this.getresult();
   }
 
 
@@ -43,5 +46,11 @@ export class AdminComponent implements OnInit {
     })
   }
 
+
+  getresult(){
+    this.http.get("http://localhost:8080/votes/grouped-by-candidate").subscribe((response:any)=>{
+this.resultlist=response;
+    })
+  }
 
 }

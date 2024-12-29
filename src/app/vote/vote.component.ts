@@ -74,7 +74,7 @@ export class VoteComponent implements OnInit {
           this.router.navigate(['/submitvote'])
         },
         error: (error) => {
-          console.error("Error while adding vote:", error);
+          alert("your response already submited");
         }
       });
     } else {

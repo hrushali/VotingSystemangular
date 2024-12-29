@@ -13,12 +13,13 @@ import { response } from 'express';
 })
 export class AuthenticationComponantComponent implements OnInit {
 logingerror:any;
+
   voter= new FormGroup({
 voterID : new FormControl(),
 
   })
  
-
+result:any;
   dbvoter:any;
   voterID:any;
 
@@ -33,9 +34,8 @@ voterID : new FormControl(),
          this.dbvoter=response;
         this.voterID=response.voterID;
   console.log("before validation")
-        // this.oncevote(response);
-        console.log("respose for id",this.voterID)
-         console.log(response,"from response");
+      this.result= this.oncevote(response);
+      
    }else{
     console.log("response not work");
    }
@@ -51,9 +51,12 @@ voterID : new FormControl(),
 
     console.log('Login attempt with:', this.voter.value);
 
-    console.log("sapdla voter id send",this.voterID);
     this.http.post<boolean>(url, this.voter.value).subscribe(
       (response) => {
+       if(this.result){
+       console.log("from getauthentication block")
+       }
+       else{
         if (response) {
           console.log('Login successful!');
 
@@ -67,6 +70,7 @@ voterID : new FormControl(),
 
           console.log('Invalid voter ID or password.');
         }
+       }
       },
       (error) => {
         console.error('Login failed due to an error:', error);
@@ -77,35 +81,24 @@ voterID : new FormControl(),
       
    
   
-  // oncevote(response:any){
+  oncevote(response:any){
 
-  //   const url = 'http://localhost:8080/votes/oncevote';
+    const url = 'http://localhost:8080/votes/oncevote';
 
-  //   console.log('Login attempt with:', this.voter.value);
+    console.log('Login attempt with:', this.voter.value);
 
-  //   this.http.post<boolean>(url, response).subscribe(
-  //     (result) => {
+    this.http.post<string>(url, response).subscribe(
+      (result) => {
 
-  //       console.log(result);
-  //       if (result!=null) {
-  //         console.log('vote successful!');
+        return result;
 
-  //         this.router.navigate(['/submitvote'])
-         
-
-  //       } else {
-
-
-  //         this.logingerror="Invalid voter ID or password."
-
-  //         console.log('Invalid voter ID or password.');
-  //       }
-  //     },
-  //     (error) => {
-  //       console.error('Login failed due to an error:', error);
-  //     }
-  //   );
-  // }
+       
+      },
+      (error) => {
+        console.error('Login failed due to an error:', error);
+      }
+    );
+  }
 
 
     
