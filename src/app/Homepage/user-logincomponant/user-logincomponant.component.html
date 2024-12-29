@@ -5,22 +5,26 @@
   <h2>User Login</h2>
 
   <form [formGroup]="voter" (ngSubmit)="login()">
-    <!-- Voter ID Input -->
+   
+
+
+    
+
     <div class="form-group">
       <label for="voterID">UserName</label>
       <input
-        type="text"
+        type="email"
         id="voterID"
         formControlName="votername"
         placeholder="Enter your Email"
         required
       />
       <div *ngIf="f.votername.invalid && f.votername.touched" class="error-message">
-        Voter ID is required.
+        Voter name is required.
       </div>
     </div>
 
-    <!-- Password Input -->
+    
     <div class="form-group">
       <label for="password">Password</label>
       <input
@@ -35,11 +39,9 @@
       </div>
     </div>
 
-    <!-- Submit Button -->
-    <button type="submit" class="login-btn" [disabled]="voter.invalid">Login</button>
+    <button type="submit" class="login-btn" [disabled]="voter.invalid" >Login</button>
   </form>
 
-  <!-- Error Message -->
   <div *ngIf="logingerror" class="error-message">
     {{ logingerror }}
   </div>

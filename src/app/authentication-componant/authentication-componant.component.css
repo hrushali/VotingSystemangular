@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
+.bod {
     font-family: 'Arial', sans-serif;
     background-image: url('vote1.jpg'); /* Replace with your background image */
     background-size: cover;

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import { RouterLink} from '@angular/router';
+import { RouterLink,Router} from '@angular/router';
 
 @Component({
   selector: 'app-contact-queries',
@@ -13,24 +13,23 @@ import { RouterLink} from '@angular/router';
 export class ContactQueriesComponent implements OnInit{
 
   contact = new FormGroup({
-massage:new FormControl(),
-subject: new FormControl(),
+massage:new FormControl(''),
+subject: new FormControl(''),
   });
 
 
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient,private router:Router){}
 
 
   ngOnInit() {
-      
+    
   }
  
 
   getqueries():void{
-const url = "http://localhost:8080/query/addq";
+const url = "http://localhost:8080/query/add";
     this.http.post(url,this.contact.value).subscribe((response:any)=>{
-   
-    })
+  })
 
   }
 

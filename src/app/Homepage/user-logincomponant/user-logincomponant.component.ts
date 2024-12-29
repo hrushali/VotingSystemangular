@@ -11,7 +11,7 @@ import { RouterLink , Router} from '@angular/router';
   styleUrls: ['./user-logincomponant.component.css'], // Corrected property name
 })
 export class UserLogincomponantComponent implements OnInit {
- dbvoter:any;
+ 
 
   logingerror : any;
  
@@ -20,10 +20,16 @@ export class UserLogincomponantComponent implements OnInit {
     password: new FormControl(''), 
   });
 
+  // votes= new FormGroup({
+  //   voterID:new FormControl(''),
+  // });
+
   constructor(private http: HttpClient, private router:Router) {}
 
   ngOnInit(): void {
-
+    
+   
+    
   }
 
   /**
@@ -36,7 +42,7 @@ export class UserLogincomponantComponent implements OnInit {
 
     this.http.post<boolean>(url, this.voter.value).subscribe(
       (response) => {
-        if (response) {
+        if (response!=null) {
           console.log('Login successful!');
 
           this.router.navigate(['/home2'])
@@ -55,6 +61,12 @@ export class UserLogincomponantComponent implements OnInit {
       }
     );
   }
+
+
+
+
+
+ 
   
   get f() {
     return this.voter.controls;

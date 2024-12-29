@@ -21,6 +21,8 @@ import { SubmitvotecomponantComponent } from './submitvotecomponant/submitvoteco
 import { EmaolcomponantComponent } from './emaolcomponant/emaolcomponant.component';
 import { Component } from '@angular/core';
 import { EmailsubmitComponent } from './emailsubmit/emailsubmit.component';
+import { CalvotescomponantComponent } from './calvotescomponant/calvotescomponant.component';
+import { LeadadmincomponantComponent } from './leadadmincomponant/leadadmincomponant.component';
 
 export const routes: Routes = [
 
@@ -121,5 +123,13 @@ export const routes: Routes = [
     {
     path:"emailsubmit",
     component:EmailsubmitComponent
+    },
+    {
+        path:"calvote",
+        component:CalvotescomponantComponent
+    },
+    {
+        path:"lead",
+        component:LeadadmincomponantComponent
     }
 ];

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'app-vote',
@@ -11,21 +11,19 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./vote.component.scss']
 })
 export class VoteComponent implements OnInit {
-
+  
   clist: any[] = [];
   dbvoter: any;
   voterID: any;
 
-  // Define the form group
   votes = new FormGroup({
     c_id: new FormControl(),
     voterID: new FormControl(),
   });
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    // Fetch session data to get the current voterID
     const sessionurl = 'http://localhost:8080/voter/session';
     this.http.get(sessionurl).subscribe((response: any) => {
       if (response) {
@@ -37,7 +35,6 @@ export class VoteComponent implements OnInit {
       }
     });
 
-    // Get candidates and update the list
     this.getvotescard();
   }
 
@@ -50,21 +47,31 @@ export class VoteComponent implements OnInit {
   selectCandidate(c_id: number): void {
     this.votes.patchValue({
       c_id: c_id, 
-      voterID: this.voterID
+      voterID: this.voterID 
     });
     console.log('Selected candidate:', c_id);
   }
 
-  // Function to submit the vote
   addvotes(): void {
     if (this.votes.valid) {
-      console.log("Submitting Vote with values:", this.votes.value);
+      // Prepare the JSON object to send
+      const voteData = {
+        voter: {
+          voterID: this.votes.value.voterID
+        },
+        candidate: {
+          c_id: this.votes.value.c_id
+        }
+      };
 
-      // POST the vote to the backend
+      console.log("Submitting Vote with values:", voteData);
+
       const urlvotes = "http://localhost:8080/votes/addvotes";
-      this.http.post(urlvotes, this.votes.value).subscribe({
-        next: (result: any) => {
-          console.log("Vote successfully added:", result);
+      this.http.post(urlvotes, voteData).subscribe({
+        next: (response: any) => {
+          console.log("Vote successfully added:", response);
+
+          this.router.navigate(['/submitvote'])
         },
         error: (error) => {
           console.error("Error while adding vote:", error);

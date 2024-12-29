@@ -17,6 +17,7 @@ logingerror:any;
 voterID : new FormControl(),
 
   })
+ 
 
   dbvoter:any;
   voterID:any;
@@ -31,6 +32,8 @@ voterID : new FormControl(),
    if(response){
          this.dbvoter=response;
         this.voterID=response.voterID;
+  console.log("before validation")
+        // this.oncevote(response);
         console.log("respose for id",this.voterID)
          console.log(response,"from response");
    }else{
@@ -38,11 +41,8 @@ voterID : new FormControl(),
    }
 
 
-    })
+    });
 
-
-
-      
   }
 
   getauthentication(){
@@ -51,6 +51,7 @@ voterID : new FormControl(),
 
     console.log('Login attempt with:', this.voter.value);
 
+    console.log("sapdla voter id send",this.voterID);
     this.http.post<boolean>(url, this.voter.value).subscribe(
       (response) => {
         if (response) {
@@ -75,6 +76,40 @@ voterID : new FormControl(),
 
       
    
-  }
+  
+  // oncevote(response:any){
+
+  //   const url = 'http://localhost:8080/votes/oncevote';
+
+  //   console.log('Login attempt with:', this.voter.value);
+
+  //   this.http.post<boolean>(url, response).subscribe(
+  //     (result) => {
+
+  //       console.log(result);
+  //       if (result!=null) {
+  //         console.log('vote successful!');
+
+  //         this.router.navigate(['/submitvote'])
+         
+
+  //       } else {
 
 
+  //         this.logingerror="Invalid voter ID or password."
+
+  //         console.log('Invalid voter ID or password.');
+  //       }
+  //     },
+  //     (error) => {
+  //       console.error('Login failed due to an error:', error);
+  //     }
+  //   );
+  // }
+
+
+    
+
+
+
+}
